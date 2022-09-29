@@ -1,0 +1,16 @@
+.pageNumbers{
+    list-style: none;
+    display: flex;
+}
+
+.pageNumbers li {
+padding: 10px;
+cursor: pointer;
+}
+
+.pageNumbers li button{
+cursor: pointer;
+border: none;
+/* font-size: 1.5rem; */
+}
+
