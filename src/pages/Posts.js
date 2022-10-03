@@ -56,10 +56,20 @@ function Posts() {
   const handlePrevButton = () => {
     setCurrentPage(currentPage - 1);
     if ((currentPage - 1) % pageNumberLimit === 0) {
-      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
-      setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
     }
   };
+
+  let pageInreamentBtn = null;
+  if (pages.length > maxPageNumberLimit) {
+    pageInreamentBtn = <li onClick={handleNextButton}> &hellip;</li>;
+  }
+
+  let pageDecreamentBtn = null;
+  if (minPageNumberLimit >= 1) {
+    pageDecreamentBtn = <li onClick={handlePrevButton}> &hellip;</li>;
+  }
 
   return (
     <>
@@ -81,13 +91,23 @@ function Posts() {
       </tbody>
       <ul className={classes.pageNumbers}>
         <li>
-          <button onClick={handlePrevButton}>Prev</button>
+          <button
+            onClick={handlePrevButton}
+            disabled={currentPage === pages[0] ? true : false}
+          >
+            Prev
+          </button>
         </li>
-
+        {pageDecreamentBtn}
         {renderPageNumbers}
-
+        {pageInreamentBtn}
         <li>
-          <button onClick={handleNextButton}>Next</button>
+          <button
+            onClick={handleNextButton}
+            disabled={currentPage === pages[pages.length - 1] ? true : false}
+          >
+            Next
+          </button>
         </li>
       </ul>
     </>

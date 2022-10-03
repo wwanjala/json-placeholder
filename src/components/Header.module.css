@@ -22,8 +22,13 @@
 }
 
 .nav li {
-  margin-left: 1.5rem;
+  margin-right: 6rem;
   font-size: 1.25rem;
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
 }
 
 .nav a {

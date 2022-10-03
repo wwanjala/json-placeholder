@@ -1,6 +1,7 @@
 .pageNumbers{
     list-style: none;
     display: flex;
+    display: flex-end;
 }
 
 .pageNumbers li {
