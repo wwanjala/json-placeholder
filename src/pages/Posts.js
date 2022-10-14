@@ -75,14 +75,14 @@ function Posts() {
     <>
       <tbody>
         <tr>
-          <th>Title</th>
+          <th >Title</th>
           <th>Description</th>
           <th>Words</th>
           <th>Author</th>
         </tr>
         {currentItem.map((item, i) => (
           <tr key={i}>
-            <td>{item.title}</td>
+            <td className={classes.title}>{item.title}</td>
             <td>{item.body}</td>
             <td>458</td>
             <td>Lean Graham</td>

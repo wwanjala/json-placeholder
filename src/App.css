@@ -1,4 +1,16 @@
-td, th {
-    border-bottom: 1px solid #ddd;
-    padding: 8px;
-  }
+td,
+th {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background: #d9d9d947;
+}
+
+td {
+  font-family: Lato;
+  font-weight: 400;
+  size: 18px;
+  line-height: 19.6px;
+}
