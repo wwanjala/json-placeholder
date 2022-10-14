@@ -89,6 +89,7 @@ function Posts() {
           </tr>
         ))}
       </tbody>
+
       <ul className={classes.pageNumbers}>
         <li>
           <button
