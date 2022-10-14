@@ -83,9 +83,9 @@ function Posts() {
         {currentItem.map((item, i) => (
           <tr key={i}>
             <td className={classes.title}>{item.title}</td>
-            <td>{item.body}</td>
+            <td >{item.body}</td>
             <td>458</td>
-            <td>Lean Graham</td>
+            <td className={classes.description}>Lean Graham</td>
           </tr>
         ))}
       </tbody>
