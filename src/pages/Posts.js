@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "../App.css";
-import classes from "./Posts.module.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import '../App.css';
+import classes from './Posts.module.css';
 
 function Posts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => {
+    axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
       setPosts(response.data);
     });
   }, []);
@@ -71,20 +71,25 @@ function Posts() {
     pageDecreamentBtn = <li onClick={handlePrevButton}> &hellip;</li>;
   }
 
+  const handleLoadMore = () => {
+    setItemsPerPage(itemsPerPage + 5);
+  };
+
   return (
     <>
       <tbody>
         <tr>
-          <th >Title</th>
+          <th>Title</th>
           <th>Description</th>
           <th>Words</th>
           <th>Author</th>
         </tr>
+
         {currentItem.map((item, i) => (
           <tr key={i}>
             <td className={classes.title}>{item.title}</td>
-            <td >{item.body}</td>
-            <td>458</td>
+            <td>{item.body}</td>
+            <td>{item.body.split(' ').length} </td>
             <td className={classes.description}>Lean Graham</td>
           </tr>
         ))}
@@ -111,6 +116,18 @@ function Posts() {
           </button>
         </li>
       </ul>
+
+      <button className="loadmore" onClick={handleLoadMore}>
+        Load more
+      </button>
+
+      <select onChange={(e) => setItemsPerPage(e.target.value)}>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+      </select>
     </>
   );
 }
